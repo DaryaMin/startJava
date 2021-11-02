@@ -9,20 +9,19 @@ public class Cycle {
         int i = 6;
         while (i > -7) {
             System.out.println(i);
-            i-=2;
+            i -= 2;
         }
 
         System.out.println("Выводим на консоль сумму нечетных чисел от [10, 20] подсчитанную с помощью цикла do-while");
         i = 10;
-        int result = 0;
+        int sumOdd = 0;
         do {
-            if (i%2 != 0) {
-                result +=i;
+            if (i % 2 != 0) {
+                sumOdd += i;
                 System.out.print(i + " + ");
             }
             i++;
-        }
-        while (i <= 20);
+        } while (i <= 20);
         System.out.print("0 =" + result);
     }
 }
