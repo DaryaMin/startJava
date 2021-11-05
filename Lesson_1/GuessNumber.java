@@ -18,8 +18,6 @@ public class GuessNumber {
             }
         }
         System.out.println("Возможно загадано " + personNumber + "?");
-        if (personNumber == misteryNumber) {
-            System.out.println("Поздравляю, число угадано!");
-        }
+        System.out.println("Поздравляю, число угадано!");
     }
 }
