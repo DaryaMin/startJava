@@ -6,35 +6,30 @@ public class Calculator {
         char sign = '/';
         int calcResult;
 
+        System.out.println("Выполняется операция " + sign);
+
         if (sign == '+') {
             calcResult = a + b;
-            System.out.println("Выполняется операция сложения:");
             System.out.println(a + " + " + b + " = " + calcResult);
         } else if (sign == '-') {
             calcResult = a - b;
-            System.out.println("Выполняется операция вычитания:");
             System.out.println(a + " - " + b + " = " + calcResult);
         } else if (sign == '*') {
             calcResult = a * b;
-            System.out.println("Выполняется операция умножения:");
             System.out.println(a + " * " + b + " = " + calcResult);
         } else if (sign == '/') {
             calcResult = a / b;
-            System.out.println("Выполняется операция деления:");
             System.out.println(a + " / " + b + " = " + calcResult);
         } else if (sign == '^') {
-            calcResult = a - b;
             int i = 2;
             calcResult = a;
             while (i <= b) {
-                calcResult = calcResult * a;
+                calcResult *= a;
                 i++;
             }
-            System.out.println("Выполняется операция возведения в степень:");
             System.out.println(a + " ^ " + b + " = " + calcResult);
         } else if (sign == '%') {
             calcResult = a % b;
-            System.out.println("Выполняется операция определения остатка от деления:");
             System.out.println(a + " % " + b + " = " + calcResult);
         }
     }

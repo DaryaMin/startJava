@@ -1,27 +1,25 @@
-public class GuessNumber{
+public class GuessNumber {
     public static void main(String[] args) {
         int misteryNumber = 84;
-        int trialNumber = 37;
-        int maxNumber = 100;
-        int minNumber = 0;
+        int personNumber = 50;
+        int endRange = 100;
+        int startRange = 0;
 
-        while (trialNumber != misteryNumber) {
-            System.out.println("Возможно загадано " + trialNumber + "?");
-            if (trialNumber > misteryNumber) {
+        while (personNumber != misteryNumber) {
+            System.out.println("Возможно загадано " + personNumber + "?");
+            if (personNumber > misteryNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер");
-                maxNumber = trialNumber;
-                trialNumber = trialNumber - (trialNumber - minNumber) / 2;
+                endRange = personNumber;
+                personNumber = personNumber - (personNumber - startRange) / 2;
             } else {
                 System.out.println("Данное число меньше того, что загадал компьютер");
-                minNumber = trialNumber;
-                trialNumber = trialNumber + (maxNumber - trialNumber) / 2;
+                startRange = personNumber;
+                personNumber = personNumber + (endRange - personNumber) / 2;
             }
         }
-        System.out.println("Возможно загадано " + trialNumber + "?");
-        if (trialNumber == misteryNumber) {
+        System.out.println("Возможно загадано " + personNumber + "?");
+        if (personNumber == misteryNumber) {
             System.out.println("Поздравляю, число угадано!");
-        } else {
-            System.out.println("Что-то пошло не так");
         }
     }
 }
