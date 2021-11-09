@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
@@ -7,26 +7,26 @@ public class CalculatorTest {
         char sign;
         String repeat;
 
-        Scanner vvod = new Scanner(System.in);
+        Scanner console = new Scanner(System.in);
 
         do {
-        Calculator calculatorTest = new Calculator();
+            Calculator calculator = new Calculator();
 
-        System.out.println("Введите первое число: ");
-        calculatorTest.setA(vvod.nextInt());
+            System.out.println("Введите первое число: ");
+            calculator.setA(console.nextInt());
 
-        System.out.println("Введите знак математической операции: ");
-        calculatorTest.setSign(vvod.next().charAt(0));
+            System.out.println("Введите знак математической операции: ");
+            calculator.setSign(console.next().charAt(0));
 
-        System.out.println("Введите второе число: ");
-        calculatorTest.setB(vvod.nextInt());
+            System.out.println("Введите второе число: ");
+            calculator.setB(console.nextInt());
 
-        calculatorTest.calculat();
+            calculator.calculat();
 
-        repeat = "";
-        while ((!repeat.equals("yes")) & (!repeat.equals("no"))) {
-            System.out.println("Хотите продолжить вычисления? [yes/no]:");
-            repeat = vvod.next();
+            repeat = "";
+            while ((!repeat.equals("yes")) && (!repeat.equals("no"))) {
+                System.out.println("Хотите продолжить вычисления? [yes/no]:");
+                repeat = console.next();
             }
         } while (repeat.equals("yes")); 
     }

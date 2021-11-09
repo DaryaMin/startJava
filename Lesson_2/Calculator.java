@@ -1,9 +1,9 @@
 public class Calculator {
 
-    int a;
-    int b;
-    char sign;
-    int calcResult;
+    private int a;
+    private int b;
+    private char sign;
+    private int calcResult;
 
     public void setA(int a) {
         this.a = a;
@@ -21,19 +21,15 @@ public class Calculator {
         switch (sign) {
             case ('+') :
                 calcResult = a + b;
-                System.out.println(a + " + " + b + " = " + calcResult);
                 break;
             case ('-') :
                 calcResult = a - b;
-                System.out.println(a + " - " + b + " = " + calcResult);
                 break;
             case ('*') :
                 calcResult = a * b;
-                System.out.println(a + " * " + b + " = " + calcResult);
                 break;
             case ('/') :
                 calcResult = a / b;
-                System.out.println(a + " / " + b + " = " + calcResult);
                 break;
             case ('^') :
                 int i = 2;
@@ -42,12 +38,11 @@ public class Calculator {
                     calcResult *= a;
                     i++;
                 }
-                System.out.println(a + " ^ " + b + " = " + calcResult);
                 break;
             case ('%') :
                 calcResult = a % b;
-                System.out.println(a + " % " + b + " = " + calcResult);
                 break;
         }
+        System.out.println(a + " " + sign + " " + b + " = " + calcResult);
     }
 }
