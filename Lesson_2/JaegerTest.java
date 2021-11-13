@@ -1,9 +1,8 @@
 public class JaegerTest {
 
     public static void main(String[] args) {
-        Jaeger striker = new Jaeger();
+        Jaeger striker = new Jaeger("Striker Eureka");
 
-        striker.setModelName("Striker Eureka");
         striker.setMark("Mark-5");
         striker.setOrigin("Australia");
         striker.setHeight(250f);
@@ -11,15 +10,7 @@ public class JaegerTest {
         striker.setSpeed(10);
         striker.setArmor(9);
 
-        Jaeger coyote = new Jaeger();
-
-        coyote.setModelName("Coyote Tango");
-        coyote.setMark("Mark-1");
-        coyote.setOrigin("Japan");
-        coyote.setHeight(280f);
-        coyote.setWeight(2.312f);
-        coyote.setSpeed(7);
-        coyote.setArmor(4);
+        Jaeger coyote = new Jaeger("Coyote Tango", "Mark-1", "Japan", 280f, 2.312f, 7, 4, 8);
 
         System.out.print("В наличии 2 Jaeger работа: ");
         System.out.println(striker.getModelName() +" и " + coyote.getModelName());
