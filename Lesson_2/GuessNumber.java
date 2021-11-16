@@ -6,8 +6,8 @@ public class GuessNumber {
     private int endRange = 100;
     private int startRange = 0;
 
-    Player playerOne;
-    Player playerTwo;
+    private Player playerOne;
+    private Player playerTwo;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
@@ -25,29 +25,32 @@ public class GuessNumber {
         Random random = new Random();
         Scanner console = new Scanner(System.in);
 
-        System.out.println("Введите число игрок " + playerOne.getName());
-        playerOne.setNumber(console.nextInt());
+        boolean isPlayerOneGuess = false;
+        boolean isPlayerTwoGuess = false;
 
-        System.out.println("Введите число игрок " + playerTwo.getName());
-        playerTwo.setNumber(console.nextInt());
-
-        while (!tryGuess(playerOne.getNumber()) && !tryGuess(playerTwo.getNumber())) {
-            System.out.println("Новая попытка");
-
+        do {
             System.out.println("Введите число игрок " + playerOne.getName());
             playerOne.setNumber(console.nextInt());
+            isPlayerOneGuess = tryGuess(playerOne.getNumber());
+
+            if (isPlayerOneGuess) {
+                System.out.println(playerOne.getName() + " победил");
+                break;
+            }
 
             System.out.println("Введите число игрок " + playerTwo.getName());
             playerTwo.setNumber(console.nextInt());
-        }
-        if (tryGuess(playerOne.getNumber())) {
-            System.out.println(playerOne.getName() + " победил");
-        } else if (tryGuess(playerTwo.getNumber())) {
-            System.out.println(playerTwo.getName() + " победил");
-        }
+            isPlayerTwoGuess = tryGuess(playerTwo.getNumber());
+
+            if (isPlayerTwoGuess) {
+                System.out.println(playerTwo.getName() + " победил");
+                break;
+            }
+
+        } while (!isPlayerOneGuess && !isPlayerTwoGuess);
     }
 
-    public boolean tryGuess(int number) {
+    private boolean tryGuess(int number) {
         boolean isGuess = false;
         if (number > misteryNumber) {
             System.out.println(number + " больше того, что загадал компьютер");
@@ -57,6 +60,6 @@ public class GuessNumber {
             System.out.println("Поздравляю, число угадано!");
             isGuess = true;
         }
-    return isGuess;
+        return isGuess;
     }
 }
