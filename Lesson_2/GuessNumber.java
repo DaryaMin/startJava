@@ -46,7 +46,6 @@ public class GuessNumber {
                 System.out.println(playerTwo.getName() + " победил");
                 break;
             }
-
         } while (!isPlayerOneGuess && !isPlayerTwoGuess);
     }
 
