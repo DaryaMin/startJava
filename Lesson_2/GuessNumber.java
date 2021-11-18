@@ -31,32 +31,28 @@ public class GuessNumber {
         do {
             System.out.println("Введите число игрок " + playerOne.getName());
             playerOne.setNumber(console.nextInt());
-            isPlayerOneGuess = tryGuess(playerOne.getNumber());
 
-            if (isPlayerOneGuess) {
-                System.out.println(playerOne.getName() + " победил");
+            if (tryGuess(playerOne)) {
                 break;
             }
 
             System.out.println("Введите число игрок " + playerTwo.getName());
             playerTwo.setNumber(console.nextInt());
-            isPlayerTwoGuess = tryGuess(playerTwo.getNumber());
 
-            if (isPlayerTwoGuess) {
-                System.out.println(playerTwo.getName() + " победил");
+            if (tryGuess(playerTwo)) {
                 break;
             }
-        } while (!isPlayerOneGuess && !isPlayerTwoGuess);
+        } while (true);
     }
 
-    private boolean tryGuess(int number) {
+    private boolean tryGuess(Player player) {
         boolean isGuess = false;
-        if (number > misteryNumber) {
-            System.out.println(number + " больше того, что загадал компьютер");
-        } else if (number < misteryNumber) {
-            System.out.println(number + " меньше того, что загадал компьютер");
+        if (player.getNumber() > misteryNumber) {
+            System.out.println(player.getNumber() + " больше того, что загадал компьютер");
+        } else if (player.getNumber() < misteryNumber) {
+            System.out.println(player.getNumber() + " меньше того, что загадал компьютер");
         } else {
-            System.out.println("Поздравляю, число угадано!");
+            System.out.println("Поздравляю, игрок " + player.getName() + " угадал число!");
             isGuess = true;
         }
         return isGuess;
