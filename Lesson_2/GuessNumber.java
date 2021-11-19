@@ -13,20 +13,12 @@ public class GuessNumber {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
 
-        Random random = new Random();
         misteryNumber = random.nextInt(101);
-    }
-
-    public int getMisteryNumber() {
-        return misteryNumber;
     }
 
     public void play() {
         Random random = new Random();
         Scanner console = new Scanner(System.in);
-
-        boolean isPlayerOneGuess = false;
-        boolean isPlayerTwoGuess = false;
 
         do {
             System.out.println("Введите число игрок " + playerOne.getName());
