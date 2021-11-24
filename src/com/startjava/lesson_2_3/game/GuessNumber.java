@@ -15,11 +15,11 @@ public class GuessNumber {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
 
+        Random random = new Random();
         misteryNumber = random.nextInt(101);
     }
 
     public void play() {
-        Random random = new Random();
         Scanner console = new Scanner(System.in);
 
         do {
