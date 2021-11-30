@@ -9,10 +9,10 @@ public class CalculatorTest {
         do {
             System.out.println("Введите математическое выражение:  ");
             Scanner console = new Scanner(System.in);
-            String data = console.nextLine();
-            String[] dataArray = data.split(" ");
+            String inputString = console.nextLine();
+            String[] inputArray = inputString.split(" ");
 
-            Calculator calculator = new Calculator(Integer.parseInt(dataArray[0]), dataArray[1].charAt(0), Integer.parseInt(dataArray[2]));
+            Calculator calculator = new Calculator(Integer.parseInt(inputArray[0]), inputArray[1].charAt(0), Integer.parseInt(inputArray[2]));
 
             System.out.println("Результат вычислений " + calculator.calculat());
 
