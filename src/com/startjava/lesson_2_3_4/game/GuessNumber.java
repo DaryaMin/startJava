@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,9 +41,11 @@ public class GuessNumber {
 
             if (tryGuess(playerTwo)) {
                 break;
-            }else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerTwo.getName() + "закончились попытки");
+            }else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerTwo.getName() + " закончились попытки");
 
         }
+        printAllNumber();
+        cleanNumber();
     }
 
     private boolean tryGuess(Player player) {
@@ -57,5 +60,21 @@ public class GuessNumber {
             isGuess = true;
         }
         return isGuess;
+    }
+
+    private void printAllNumber(){
+        for (int i = 0; i <= tryNumber; i++) {
+            System.out.print(playerOne.getNumber()[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i <= tryNumber; i++) {
+            System.out.print(playerTwo.getNumber()[i] + " ");
+        }
+        System.out.println();
+    }
+
+    private void cleanNumber() {
+        Arrays.fill(playerOne.getNumber(), 0, tryNumber + 1, 0);
+        Arrays.fill(playerTwo.getNumber(), 0, tryNumber + 1, 0);
     }
 }
