@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class GuessNumber {
     private int misteryNumber;
-    private int endRange = 100;
-    private int startRange = 0;
+    private int maxTry;
+    private int tryNumber;
 
     private Player playerOne;
     private Player playerTwo;
@@ -20,33 +20,40 @@ public class GuessNumber {
     }
 
     public void play() {
+        maxTry = playerOne.getNumber().length;
+        System.out.println("У каждого игрока по " + maxTry + " попыток");
+
         Scanner console = new Scanner(System.in);
 
-        do {
+        tryNumber = 0;
+
+        for (tryNumber = 0; tryNumber < maxTry; tryNumber++) {
             System.out.println("Введите число игрок " + playerOne.getName());
-            playerOne.setNumber(console.nextInt());
+            playerOne.setNumber(console.nextInt(), tryNumber);
 
             if (tryGuess(playerOne)) {
                 break;
-            }
+            } else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerOne.getName() + "закончились попытки");
 
             System.out.println("Введите число игрок " + playerTwo.getName());
-            playerTwo.setNumber(console.nextInt());
+            playerTwo.setNumber(console.nextInt(), tryNumber);
 
             if (tryGuess(playerTwo)) {
                 break;
-            }
-        } while (true);
+            }else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerTwo.getName() + "закончились попытки");
+
+        }
     }
 
     private boolean tryGuess(Player player) {
         boolean isGuess = false;
-        if (player.getNumber() > misteryNumber) {
-            System.out.println(player.getNumber() + " больше того, что загадал компьютер");
-        } else if (player.getNumber() < misteryNumber) {
-            System.out.println(player.getNumber() + " меньше того, что загадал компьютер");
+        int playerNumber = player.getNumber()[tryNumber];
+        if (playerNumber > misteryNumber) {
+            System.out.println(playerNumber + " больше того, что загадал компьютер");
+        } else if (playerNumber < misteryNumber) {
+            System.out.println(playerNumber + " меньше того, что загадал компьютер");
         } else {
-            System.out.println("Поздравляю, игрок " + player.getName() + " угадал число!");
+            System.out.println("Игрок " + player.getName() + " угадал число " + playerNumber + " с " + tryNumber + " попытки");
             isGuess = true;
         }
         return isGuess;

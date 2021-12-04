@@ -5,35 +5,29 @@ public class Calculator {
     private int a;
     private int b;
     private char sign;
-    private int calcResult;
 
-    public Calculator(int a, char sign, int b ) {
-        this.a = a;
-        this.sign = sign;
-        this.b = b;
+    public Calculator(String inputString) {
+        String[] inputArray = inputString.split(" ");
+        this.a = Integer.parseInt(inputArray[0]);
+        this.sign =  inputArray[1].charAt(0);
+        this.b = Integer.parseInt(inputArray[2]);
     }
 
-    public int calculat() {
+    public int calculate() {
         switch (sign) {
             case ('+') :
-                calcResult = Math.addExact(a, b);
-                break;
+                return Math.addExact(a, b);
             case ('-') :
-                calcResult = Math.subtractExact(a,b);
-                break;
+                return Math.subtractExact(a,b);
             case ('*') :
-                calcResult = Math.multiplyExact(a, b);
-                break;
+                return Math.multiplyExact(a, b);
             case ('/') :
-                calcResult = Math.floorDiv(a, b);
-                break;
+                return Math.floorDiv(a, b);
             case ('^') :
-                calcResult = (int) Math.pow(a,b);
-                break;
+                return (int) Math.pow(a,b);
             case ('%') :
-                calcResult = Math.floorMod(a, b);
-                break;
+                return Math.floorMod(a, b);
         }
-        return calcResult;
+        return 0;
     }
 }
