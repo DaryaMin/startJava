@@ -1,8 +1,10 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
-    private int[] number = new int[10];
+    private int[] numbers = new int[10];
 
     public Player(String name) {
         this.name = name;
@@ -13,10 +15,10 @@ public class Player {
     }
 
     public void setNumber(int number, int trying) {
-        this.number[trying] = number;
+        this.numbers[trying] = number;
     }
 
-    public int[] getNumber() {
-        return number;
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, numbers.length);
     }
 }

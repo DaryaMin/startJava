@@ -7,16 +7,17 @@ public class CalculatorTest {
         String repeat;
 
         do {
-            System.out.println("Введите математическое выражение:  ");
             Scanner console = new Scanner(System.in);
 
+            System.out.println("Введите математическое выражение:  ");
             Calculator calculator = new Calculator(console.nextLine());
 
             System.out.println("Результат вычислений " + calculator.calculate());
 
-            do { System.out.println("Хотите продолжить вычисления? [yes/no]:");
+            do {
+                System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 repeat = console.next();
             } while (!repeat.equals("yes") && !repeat.equals("no"));
-        } while (repeat.equals("yes")); 
+        } while (repeat.equals("yes"));
     }
 }

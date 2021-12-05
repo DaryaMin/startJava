@@ -21,7 +21,7 @@ public class GuessNumber {
     }
 
     public void play() {
-        maxTry = playerOne.getNumber().length;
+        maxTry = playerOne.getNumbers().length;
         System.out.println("У каждого игрока по " + maxTry + " попыток");
 
         Scanner console = new Scanner(System.in);
@@ -34,23 +34,27 @@ public class GuessNumber {
 
             if (tryGuess(playerOne)) {
                 break;
-            } else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerOne.getName() + "закончились попытки");
+            } else if (tryNumber == (maxTry - 1))
+                System.out.println("У игрока " + playerOne.getName() + "закончились попытки");
 
             System.out.println("Введите число игрок " + playerTwo.getName());
             playerTwo.setNumber(console.nextInt(), tryNumber);
 
             if (tryGuess(playerTwo)) {
                 break;
-            }else if (tryNumber == (maxTry - 1)) System.out.println("У игрока " + playerTwo.getName() + " закончились попытки");
+            } else if (tryNumber == (maxTry - 1))
+                System.out.println("У игрока " + playerTwo.getName() + " закончились попытки");
 
         }
-        printAllNumber();
-        cleanNumber();
+        printNumbers(playerOne);
+        printNumbers(playerTwo);
+        cleanNumber(playerOne);
+        cleanNumber(playerTwo);
     }
 
     private boolean tryGuess(Player player) {
         boolean isGuess = false;
-        int playerNumber = player.getNumber()[tryNumber];
+        int playerNumber = player.getNumbers()[tryNumber];
         if (playerNumber > misteryNumber) {
             System.out.println(playerNumber + " больше того, что загадал компьютер");
         } else if (playerNumber < misteryNumber) {
@@ -62,19 +66,16 @@ public class GuessNumber {
         return isGuess;
     }
 
-    private void printAllNumber(){
-        for (int i = 0; i <= tryNumber; i++) {
-            System.out.print(playerOne.getNumber()[i] + " ");
-        }
-        System.out.println();
-        for (int i = 0; i <= tryNumber; i++) {
-            System.out.print(playerTwo.getNumber()[i] + " ");
+    private void printNumbers(Player player) {
+        for (int number : player.getNumbers()) {
+            if (number != 0) {
+                System.out.print(number + " ");
+            }
         }
         System.out.println();
     }
 
-    private void cleanNumber() {
-        Arrays.fill(playerOne.getNumber(), 0, tryNumber + 1, 0);
-        Arrays.fill(playerTwo.getNumber(), 0, tryNumber + 1, 0);
+    private void cleanNumber(Player player) {
+        Arrays.fill(player.getNumbers(), 0, tryNumber + 1, 0);
     }
 }

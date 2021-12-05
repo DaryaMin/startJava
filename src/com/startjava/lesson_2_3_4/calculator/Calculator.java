@@ -6,26 +6,26 @@ public class Calculator {
     private int b;
     private char sign;
 
-    public Calculator(String inputString) {
-        String[] inputArray = inputString.split(" ");
-        this.a = Integer.parseInt(inputArray[0]);
-        this.sign =  inputArray[1].charAt(0);
-        this.b = Integer.parseInt(inputArray[2]);
+    public Calculator(String mathExpression) {
+        String[] splittedExpression = mathExpression.split(" ");
+        this.a = Integer.parseInt(splittedExpression[0]);
+        this.sign = splittedExpression[1].charAt(0);
+        this.b = Integer.parseInt(splittedExpression[2]);
     }
 
     public int calculate() {
         switch (sign) {
-            case ('+') :
+            case ('+'):
                 return Math.addExact(a, b);
-            case ('-') :
-                return Math.subtractExact(a,b);
-            case ('*') :
+            case ('-'):
+                return Math.subtractExact(a, b);
+            case ('*'):
                 return Math.multiplyExact(a, b);
-            case ('/') :
+            case ('/'):
                 return Math.floorDiv(a, b);
-            case ('^') :
-                return (int) Math.pow(a,b);
-            case ('%') :
+            case ('^'):
+                return (int) Math.pow(a, b);
+            case ('%'):
                 return Math.floorMod(a, b);
         }
         return 0;
