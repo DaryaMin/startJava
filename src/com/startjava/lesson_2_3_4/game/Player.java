@@ -18,7 +18,11 @@ public class Player {
         this.numbers[trying] = number;
     }
 
-    public int[] getNumbers() {
-        return Arrays.copyOf(numbers, numbers.length);
+    public int[] getNumbers(int countTry) {
+        return Arrays.copyOf(numbers, countTry);
+    }
+
+    public void cleanNumber(int countTry) {
+        Arrays.fill(numbers, 0, countTry + 1, 0);
     }
 }
