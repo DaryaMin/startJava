@@ -21,7 +21,6 @@ public class GuessNumber {
     }
 
     public void play() {
-
         System.out.println("У каждого игрока по " + maxTry + " попыток");
 
         tryNumber = 0;
@@ -55,7 +54,6 @@ public class GuessNumber {
 
     private boolean isGuess(Player player) {
         int playerNumber = player.getNumbers(tryNumber + 1)[tryNumber];
-
         if (playerNumber != misteryNumber) {
             String guessAnswer = playerNumber > misteryNumber ? playerNumber + " больше того, что загадал компьютер" : playerNumber + " меньше того, что загадал компьютер";
             System.out.println(guessAnswer);
