@@ -22,7 +22,7 @@ public class Player {
         return Arrays.copyOf(numbers, countTry);
     }
 
-    public void cleanNumber(int countTry) {
+    public void clearNumbers(int countTry) {
         Arrays.fill(numbers, 0, countTry + 1, 0);
     }
 }

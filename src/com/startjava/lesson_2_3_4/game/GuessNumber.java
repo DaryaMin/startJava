@@ -27,45 +27,43 @@ public class GuessNumber {
         tryNumber = 0;
 
         for (tryNumber = 0; tryNumber < maxTry; tryNumber++) {
-            tryGuess(playerOne, tryNumber);
+            inputNumber(playerOne, tryNumber);
 
             if (isGuess(playerOne)) {
                 break;
             } else if (tryNumber == (maxTry - 1))
                 System.out.println("У игрока " + playerOne.getName() + "закончились попытки");
 
-           tryGuess(playerTwo, tryNumber);
+            inputNumber(playerTwo, tryNumber);
 
             if (isGuess(playerTwo)) {
                 break;
             } else if (tryNumber == (maxTry - 1))
                 System.out.println("У игрока " + playerTwo.getName() + " закончились попытки");
-
         }
         printNumbers(playerOne);
         printNumbers(playerTwo);
-        playerOne.cleanNumber(tryNumber);
-        playerTwo.cleanNumber(tryNumber);
+        playerOne.clearNumbers(tryNumber);
+        playerTwo.clearNumbers(tryNumber);
     }
 
-    private void tryGuess(Player player, int tryNumber) {
+    private void inputNumber(Player player, int tryNumber) {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите число игрок " + player.getName());
         player.setNumber(console.nextInt(), tryNumber);
     }
 
     private boolean isGuess(Player player) {
-        boolean isGuess = false;
         int playerNumber = player.getNumbers(tryNumber + 1)[tryNumber];
-        if (playerNumber > misteryNumber) {
-            System.out.println(playerNumber + " больше того, что загадал компьютер");
-        } else if (playerNumber < misteryNumber) {
-            System.out.println(playerNumber + " меньше того, что загадал компьютер");
+
+        if (playerNumber != misteryNumber) {
+            String guessAnswer = playerNumber > misteryNumber ? playerNumber + " больше того, что загадал компьютер" : playerNumber + " меньше того, что загадал компьютер";
+            System.out.println(guessAnswer);
+            return false;
         } else {
             System.out.println("Игрок " + player.getName() + " угадал число " + playerNumber + " с " + (tryNumber + 1) + " попытки");
-            isGuess = true;
+            return true;
         }
-        return isGuess;
     }
 
     private void printNumbers(Player player) {
