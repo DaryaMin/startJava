@@ -1,0 +1,1 @@
+CREATE TABLE Jaegers (id SERIAL PRIMARY KEY, modelName CHAR(100), mark CHAR(100), height REAL, weight REAL, status CHAR(100), origin CHAR(100), launch CHAR(100), kaijuKill INTEGER);
